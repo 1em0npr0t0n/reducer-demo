@@ -1,5 +1,9 @@
 # Redux-Demo
 
+## redux的组成
+
+<Provider> store reducer action dispatch （immer）
+
 ## react-redux 基础用法
 
  创建 createSlice 导出 reducer
