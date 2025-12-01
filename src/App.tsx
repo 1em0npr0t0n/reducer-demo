@@ -1,10 +1,12 @@
-import Count from "./Count"
+// import Count from "./page/Count"
+import TodoList from "./page/TodoList"
 
 function App() {
   return (
     <>
       <h1>Redux demo</h1>
-      <Count/>
+      {/* <Count/> */}
+      <TodoList/>
     </>
   )
 }
