@@ -1,9 +1,13 @@
 # Redux-Demo
 
 ## react-redux 基础用法
+
  创建 createSlice 导出 reducer
+
  创建 configureStore 导入 reducer
+
  useSelector 查询Store
+
  useDispatch 配发(运行 action)->action
  
  
