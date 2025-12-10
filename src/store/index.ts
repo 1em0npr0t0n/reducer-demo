@@ -20,6 +20,6 @@ export default configureStore({
         todoList: todoListReducer,
         
         //带有undoable redux-undo 撤销/重做
-        undoTodoList:undoable(undoTodoListReducer,{limit:20,filter:excludeAction(['todoList/toggleCompleted'])})
+        undoTodoList:undoable(undoTodoListReducer,{limit:20,filter:excludeAction(['undoTodoList/toggleCompleted'])})
     }
 })
