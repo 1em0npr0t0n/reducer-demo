@@ -19,7 +19,7 @@ export default configureStore({
         //列表item add del demo
         todoList: todoListReducer,
         
-        //带有undoable redux-undo 撤销/重做
+        //带有undoable redux-undo 撤销/重做  ActionCreators.clearHistory() 可以清除历史
         undoTodoList:undoable(undoTodoListReducer,{limit:20,filter:excludeAction(['undoTodoList/toggleCompleted'])})
     }
 })
