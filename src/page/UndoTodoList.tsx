@@ -5,7 +5,7 @@ import { addTodo, delTodo, toggleCompleted, type UndoTodoItemType } from "../sto
 import { nanoid } from "nanoid";
 import { ActionCreators } from "redux-undo";
 
-const TodoList:FC=()=>{
+const UndoTodoList:FC=()=>{
     //从 redux store 中获取 todoList
     //const todoList=useSelector<StateType>(state=>state.todoList) as TodoItemType[]
 
@@ -51,4 +51,4 @@ const TodoList:FC=()=>{
 
     </>
 }
-export default TodoList
+export default UndoTodoList
