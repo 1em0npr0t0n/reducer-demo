@@ -1,13 +1,16 @@
 import type { FC } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import type {StateType} from '../store/index'
-import { addTodo, delTodo, toggleCompleted, type TodoItemType } from "../store/todoList";
+import { addTodo, delTodo, toggleCompleted, type UndoTodoItemType } from "../store/undoTodoList";
 import { nanoid } from "nanoid";
+import { ActionCreators } from "redux-undo";
 
 const TodoList:FC=()=>{
     //从 redux store 中获取 todoList
-    const todoList=useSelector<StateType>(state=>state.todoList) as TodoItemType[]
+    //const todoList=useSelector<StateType>(state=>state.todoList) as TodoItemType[]
 
+    //redux-undo
+    const todoList=useSelector<StateType>(state=>state.undoTodoList.present) as UndoTodoItemType[]
     const dispatch = useDispatch()
     function del(delId:string){
         dispatch(delTodo({id:delId}))
@@ -20,7 +23,14 @@ const TodoList:FC=()=>{
         
         dispatch(addTodo({id:nid,title:'todo'+nid,completed:true}))
     }
-
+    //撤销
+    function undo(){
+       dispatch( ActionCreators.undo())
+    }
+    //重做
+    function redo(){
+        dispatch(ActionCreators.redo())
+    }
     return <>
     <div>
             <div>todoList <button onClick={()=>{add()}}>add</button></div>
@@ -33,7 +43,9 @@ const TodoList:FC=()=>{
                 </li>
         })}
     </ul>
-
+    {/* 新增两个按钮 */}
+    <button onClick={undo}>undo</button>
+    <button onClick={redo}>redo</button>
 
     </div>
 
